@@ -23,7 +23,6 @@ repeated_list = []
 
 client = discord.Client()
 
-################################
 
 
 def number_of_days():
@@ -134,10 +133,6 @@ def check_tasks(loop,time,ctx):
                     
 
     
-
-################################################################
-######################### Clock Thread #########################
-################################################################
 def clock(loop,ctx):
     print("Initializing clock")
     while True:
@@ -145,8 +140,6 @@ def clock(loop,ctx):
         check_tasks(loop,get_time(),ctx) 
 
 
-################################################################
-################################################################
 
 
     
@@ -162,9 +155,7 @@ def str_schedule(userid):
         return "**You have no tasks scheduled!**"
     return df.to_string(index=False)
 
-################################################################
-############################ Events ############################
-################################################################
+
 @client.event
 async def on_ready():
     print('Logged in as {0.user}'.format(client))
@@ -241,9 +232,7 @@ async def on_message(message):
 
     if msg.startswith('!help') or msg == '?' or msg.startswith('!h'):
         await message.channel.send(embed=help_embed)
-################################################################
-################################################################
-################################################################
+
 
 clock_thread= threading.Thread(target=clock,args=(asyncio.get_event_loop(),client))
 
